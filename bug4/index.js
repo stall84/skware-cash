@@ -31,13 +31,14 @@ function renderTransactions(transactions) {
 document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById('transactions').innerHTML = renderTransactions(fullTransactionData);
 
+	// added toLowerCase method to the input text stored in searchString and then set all of the transaction data fields also to lowerCase
 	document.getElementById('search-input').addEventListener('input', function (e) {
-		var searchString = e.target.value;
+		var searchString = e.target.value.toLowerCase();
 		var filteredData = fullTransactionData.filter(function (transaction) {
-			var foundInName = transaction.name.indexOf(searchString) > -1;
-			var foundInFor = transaction.for.indexOf(searchString) > -1;
-			var foundInDate = transaction.date.indexOf(searchString) > -1;
-			var foundInAmount = transaction.amount.indexOf(searchString) > -1;
+			var foundInName = transaction.name.toLowerCase().indexOf(searchString) > -1;
+			var foundInFor = transaction.for.toLowerCase().indexOf(searchString) > -1;
+			var foundInDate = transaction.date.toLowerCase().indexOf(searchString) > -1;
+			var foundInAmount = transaction.amount.toLowerCase().indexOf(searchString) > -1;
 			return foundInName || foundInFor || foundInDate || foundInAmount;
 		});
 
