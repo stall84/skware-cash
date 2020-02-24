@@ -3,6 +3,8 @@
 //   given a list of transactions, will generate an HTML
 //   string representing the transactions
 //*******************************************************
+
+debugger;
 function renderTransactions(transactions) {
 	var finalHTML = '<div class="buffer">TRANSACTIONS</div>';
 

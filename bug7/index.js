@@ -3,8 +3,12 @@
 //   given a list of transactions, will generate an HTML
 //   string representing the transactions
 //*******************************************************
+debugger;
+
 function renderTransactions(transactions) {
 	var finalHTML = '<div class="buffer">TRANSACTIONS</div>';
+
+
 
 	var transactionsHTML = transactions.map(function (transaction) {
 		var transactionHTML = `
@@ -17,8 +21,8 @@ function renderTransactions(transactions) {
 		`
 		return transactionHTML;
 	});
-
-	finalHTML += transactionsHTML.join();
+	// located bug in the join method .. no apostrophes used within parenthesis
+	finalHTML += transactionsHTML.join('');
 
 	return finalHTML;
 }

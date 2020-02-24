@@ -31,7 +31,8 @@ function renderTransactions(transactions) {
 document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById('transactions').innerHTML = renderTransactions(fullTransactionData);
 
-	document.getElementById('search-input').addEventListener('change', function (e) {
+	// found bug in event listener below. was set to 'change' .. should be set to 'input' listener.
+	document.getElementById('search-input').addEventListener('input', function (e) {
 		var searchString = e.target.value.toLowerCase();
 		var filteredData = fullTransactionData.filter(function (transaction) {
 			var foundInName = transaction.name.toLowerCase().indexOf(searchString) > -1;
